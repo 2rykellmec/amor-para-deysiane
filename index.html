@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 Anos de Amor</title>
+    <style>
+        body {
+            background-color: black;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow-y: scroll; /* Permitir rolagem vertical */
+        }
+        .container {
+            max-width: 800px; /* Largura máxima do conteúdo */
+            margin: auto; /* Centralizar o conteúdo */
+            padding: 20px; /* Espaçamento interno */
+            color: white;
+        }
+        h1 {
+            margin-top: 50px;
+            font-size: 2.5em;
+            text-align: center;
+        }
+        .heart {
+            color: red;
+        }
+        .message {
+            font-size: 1.5em;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: center; /* Centralizar a mensagem */
+        }
+        .photo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .photo img {
+            border-radius: 15px;
+            width: 200px; /* Diminuí a largura da imagem */
+            height: auto;
+        }
+        /* Área para as mensagens piscando */
+        .scrolling-messages-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+        }
+        .scrolling-message {
+            position: absolute;
+            color: white;
+            font-size: 1.2em; /* Tamanho das mensagens piscantes */
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        /* Corações rolando */
+        .heart-container {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .heart-float {
+            position: absolute;
+            color: red;
+            font-size: 2em;
+            animation: floatUp 5s linear infinite;
+        }
+        @keyframes floatUp {
+            from {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        /* Estilo para a frase final */
+        .final-message {
+            color: white;
+            text-align: center;
+            font-style: italic; /* Texto em itálico */
+            font-size: 1.5em;
+            margin-top: 50px; /* Espaçamento antes da frase final */
+        }
+        /* Estilo para a assinatura */
+        .signature {
+            text-align: center; /* Centralizar a assinatura */
+            color: white;
+            font-size: 0.8em; /* Tamanho pequeno da fonte */
+            font-weight: lighter; /* Fonte mais fina */
+            margin-top: 50px; /* Espaço acima da assinatura */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Deysiane, obrigado por aparecer na minha vida</h1>
+        <div class="message">
+            <p>Foram 2 anos de aprendizado ao seu lado, de muitos outros que estão por vir.</p>
+            <p>Quero que saiba que eu sou a pessoa mais feliz do mundo quando estou com você. Eu te amo muito <span class="heart">❤️</span></p>
+        </div>
+
+        <div class="photo">
+            <img src="Imagem do WhatsApp de 2024-10-02 à(s) 23.13.00_73b0d6da.jpg" alt="Nossa foto">
+        </div>
+
+        <div class="heart-container" id="hearts"></div>
+
+        <div class="scrolling-messages-container">
+            <div class="scrolling-message" style="top: 10%; left: 5%;">Deysiane, eu te amo <span class="heart">❤️</span></div>
+            <div class="scrolling-message" style="top: 10%; right: 5%;">Deysiane, eu te amo <span class="heart">❤️</span></div>
+            <div class="scrolling-message" style="bottom: 10%; left: 5%;">Deysiane, eu te amo <span class="heart">❤️</span></div>
+            <div class="scrolling-message" style="bottom: 10%; right: 5%;">Deysiane, eu te amo <span class="heart">❤️</span></div>
+        </div>
+
+        <!-- Frase final em itálico com aspas -->
+        <div class="final-message">
+            <p>“Quero me casar com você. Quero ter filhos com você. Quero que edifiquemos uma casa. Quero ser estável e envelhecer com você. Quero morrer quando tiver 110 anos e em seus braços. Não quero passar nem um instante longe de você. Quero uma vida com você.”</p>
+        </div>
+
+        <!-- Assinatura no final -->
+        <div class="signature">
+            <p>Assinado: Rikelme</p>
+        </div>
+    </div>
+
+    <script>
+        // Gerando os corações rolando pela tela
+        function createHearts() {
+            const container = document.getElementById('hearts');
+            const heart = document.createElement('div');
+            heart.classList.add('heart-float');
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+            heart.textContent = '❤️';
+            container.appendChild(heart);
+
+            setTimeout(() => heart.remove(), 5000); // Remove o coração após 5s
+        }
+
+        setInterval(createHearts, 300); // Cria um coração a cada 300ms
+    </script>
+</body>
+</html>
+
+
+
+
+
