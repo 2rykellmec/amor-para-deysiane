@@ -42,25 +42,6 @@
             width: 200px; /* Diminuí a largura da imagem */
             height: auto;
         }
-        /* Área para as mensagens piscando */
-        .scrolling-messages-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-        }
-        .scrolling-message {
-            position: absolute;
-            color: white;
-            font-size: 1.2em; /* Tamanho das mensagens piscantes */
-            animation: blink 1s infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
         /* Corações rolando */
         .heart-container {
             position: absolute;
@@ -108,7 +89,7 @@
         <h1>Deysiane, obrigado por aparecer na minha vida</h1>
         <div class="message">
             <p>Foram 2 anos de aprendizado ao seu lado, de muitos outros que estão por vir.</p>
-            <p>Quero que saiba que eu sou a pessoa mais feliz do mundo quando estou com você. Eu te amo muito <span class="heart">❤️</span></p>
+            <p>Quero que saiba que eu sou a pessoa mais feliz do mundo quando estou com você. Eu te amo muito minha princesa. <span class="heart">❤️</span></p>
         </div>
 
         <div class="photo">
@@ -116,13 +97,6 @@
         </div>
 
         <div class="heart-container" id="hearts"></div>
-
-        <div class="scrolling-messages-container">
-            <div class="scrolling-message" style="top: 10%; left: 5%;">Deysiane, eu te amo <span class="heart">❤️</span></div>
-            <div class="scrolling-message" style="top: 10%; right: 5%;">Deysiane, eu te amo <span class="heart">❤️</span></div>
-            <div class="scrolling-message" style="bottom: 10%; left: 5%;">Deysiane, eu te amo <span class="heart">❤️</span></div>
-            <div class="scrolling-message" style="bottom: 10%; right: 5%;">Deysiane, eu te amo <span class="heart">❤️</span></div>
-        </div>
 
         <!-- Frase final em itálico com aspas -->
         <div class="final-message">
@@ -133,6 +107,15 @@
         <div class="signature">
             <p>Assinado: Rikelme</p>
         </div>
+
+        <!-- Adicionando música -->
+        <audio id="background-audio" controls autoplay loop muted>
+            <source src="Jorge & Mateus - Os Anjos Cantam (LyricVideo) [Álbum Os Anjos Cantam].mp3" type="audio/mpeg">
+            Seu navegador não suporta o elemento de áudio.
+        </audio>
+        
+        <!-- Botão para desmutar a música -->
+        <button onclick="unmuteAudio()" style="margin: 20px; display: block; margin-left: auto; margin-right: auto;">Ativar Som</button>
     </div>
 
     <script>
@@ -150,10 +133,16 @@
         }
 
         setInterval(createHearts, 300); // Cria um coração a cada 300ms
+
+        // Função para desmutar o áudio
+        function unmuteAudio() {
+            const audio = document.getElementById('background-audio');
+            audio.muted = false; // Desmutar o áudio
+            audio.play(); // Tocar o áudio
+        }
     </script>
 </body>
 </html>
-
 
 
 
